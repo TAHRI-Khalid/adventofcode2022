@@ -18,13 +18,10 @@ public class Day5 {
         var stacks = fillTheStacks(crateData);
 
         for (var line : moves) {
-            var m = line.replace("move ", "")
-                    .replace(" from ", ",")
-                    .replace(" to ", ",")
-                    .split(",");
-            int num = Integer.parseInt(m[0]);
-            int from = Integer.parseInt(m[1]);
-            int to = Integer.parseInt(m[2]);
+            var m = line.split(" ");
+            int num = Integer.parseInt(m[1]);
+            int from = Integer.parseInt(m[3]);
+            int to = Integer.parseInt(m[5]);
 
             moveCratesFromStackToStack(stacks, num, from, to);
         }
