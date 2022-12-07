@@ -13,8 +13,10 @@ public class Day1 {
                 .mapToInt(Integer::parseInt)
                 .sum();
 
+
         var data = Arrays.stream(Files.readString(Path.of("data/day1.txt"))
                 .split("\n\n")).toList();
+
 
         /*
         var result = data.stream().map(sumCalories::applyAsInt)
