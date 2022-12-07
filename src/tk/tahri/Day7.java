@@ -8,7 +8,8 @@ import java.util.List;
 
 public class Day7 {
     public static final Path PATH = Path.of("data/day7.txt");
-    public static long totalsize = 0;
+    public static long spaceToDelete = Long.MAX_VALUE;
+    public static long smallestDirectory = Long.MAX_VALUE;
 
     public static void main(String[] args) throws IOException {
         var data = Files.readAllLines(PATH);
@@ -49,12 +50,18 @@ public class Day7 {
         }
 
         //find all of the directories with a total size of at most 100000
+        var usedSpace = traverse(root);
+        var freeSpace = 70_000_000 - usedSpace;
+        spaceToDelete = 30_000_000 - freeSpace;
+        //System.out.println(spaceToDelete);
+        //System.out.println(smallestDirectory);
+
         traverse(root);
-        System.out.println(totalsize);
+        System.out.println(smallestDirectory);
+
     }
 
     private static long traverse(Directory directory) {
-
         long sum = 0;
         long size = directory.totalSizeOfCurrentFiles();
 
@@ -62,8 +69,10 @@ public class Day7 {
             sum += traverse(child);
         }
 
-        if (sum + size <= 100_000) {
-            totalsize += sum + size;
+        if (sum + size >= spaceToDelete) {
+            if (sum + size < smallestDirectory) {
+                smallestDirectory = sum + size;
+            }
         }
         return size + sum;
     }
