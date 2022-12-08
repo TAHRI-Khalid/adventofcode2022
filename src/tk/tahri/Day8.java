@@ -12,56 +12,64 @@ public class Day8 {
 
     public static void main(String[] args) throws IOException {
         data = Files.readAllLines(PATH);
-        int sumOfVisibleTree = 0;
+        int highestScenicScore = 0;
         for (int row = 0; row < data.size(); row++) {
             for (int col = 0; col < data.get(row).length(); col++) {
-                if (isVisibleFromLeft(col, row) || isVisibleFromRight(col, row) ||
-                        isVisibleFromTop(col, row) || isVisibleFromBottom(col,row)) {
-                    sumOfVisibleTree++;
-                }
+                var score = isVisibleFromLeft(col, row) * isVisibleFromRight(col, row) *
+                        isVisibleFromTop(col, row) * isVisibleFromBottom(col, row);
+                if (score > highestScenicScore) highestScenicScore = score;
             }
         }
-        System.out.println(sumOfVisibleTree);
+
+        System.out.println(highestScenicScore);
     }
 
-    public static boolean isVisibleFromLeft(int col, int row) {
+    public static int isVisibleFromLeft(int col, int row) {
         var value = getValue(col, row);
+        var sumOfvisibleTree = 0;
         for (int i = col - 1; i >= 0; i--) {
+            sumOfvisibleTree++;
             if (value <= getValue(i, row)) {
-                return false;
+                return sumOfvisibleTree;
             }
         }
-        return true;
+        return sumOfvisibleTree;
     }
 
-    public static boolean isVisibleFromRight(int col, int row) {
+    public static int isVisibleFromRight(int col, int row) {
         var value = getValue(col, row);
+        var sumOfvisibleTree = 0;
         for (int i = col + 1; i < data.get(row).length(); i++) {
+            sumOfvisibleTree++;
             if (value <= getValue(i, row)) {
-                return false;
+                return sumOfvisibleTree;
             }
         }
-        return true;
+        return sumOfvisibleTree;
     }
 
-    public static boolean isVisibleFromTop(int col, int row) {
+    public static int isVisibleFromTop(int col, int row) {
         var value = getValue(col, row);
+        var sumOfvisibleTree = 0;
         for (int i = row - 1; i >= 0; i--) {
+            sumOfvisibleTree++;
             if (value <= getValue(col, i)) {
-                return false;
+                return sumOfvisibleTree;
             }
         }
-        return true;
+        return sumOfvisibleTree;
     }
 
-    public static boolean isVisibleFromBottom(int col, int row) {
+    public static int isVisibleFromBottom(int col, int row) {
         var value = getValue(col, row);
+        var sumOfvisibleTree = 0;
         for (int i = row + 1; i < data.size(); i++) {
+            sumOfvisibleTree++;
             if (value <= getValue(col, i)) {
-                return false;
+                return sumOfvisibleTree;
             }
         }
-        return true;
+        return sumOfvisibleTree;
     }
 
     public static int getValue(int col, int row) {
