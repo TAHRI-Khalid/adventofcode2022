@@ -7,6 +7,7 @@ import java.util.List;
 
 public class Day8 {
     public static final Path PATH = Path.of("data/day8.txt");
+
     public static List<String> data;
 
     public static void main(String[] args) throws IOException {
