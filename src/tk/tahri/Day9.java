@@ -61,23 +61,10 @@ record Position(int x, int y) {
     }
 
     public Position follow(Position position) {
-        var dx = 0;
-        var dy = 0;
 
-        if (x == position.x) {
-            dy = (position.y - y) / 2;
-        } else if (y == position.y) {
-            dx = (position.x - x) / 2;
-        } else if (x < position.x == y < position.y) {
-            dx = (position.x - x) / Math.abs(position.x - x);
-            dy = (position.y - y) / Math.abs(position.y - y);
-        } else if (x < position.x) {
-            dx = 1;
-            dy = -1;
-        } else {
-            dx = -1;
-            dy = 1;
-        }
+        var dx = position.x - x == 0 ? 0 : (position.x - x) / Math.abs(position.x - x);
+        var dy = position.y - y == 0 ? 0 : (position.y - y) / Math.abs(position.y - y);
+
         return new Position(x + dx, y + dy);
     }
 }
