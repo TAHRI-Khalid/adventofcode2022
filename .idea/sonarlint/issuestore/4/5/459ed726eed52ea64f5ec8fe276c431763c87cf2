@@ -1,9 +1,0 @@
-
-h
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(œû¿Ø
-b
-java:S1854"GRemove this useless assignment to local variable "findTheSameCaracter".(íÒÿ½þÿÿÿÿ
-S
-java:S1481"8Remove this unused "findTheSameCaracter" local variable.(íÒÿ½þÿÿÿÿ
-V	java:S1251"<This block of commented-out lines of code should be removed.(ê¸‘Ûþÿÿÿÿ
-N	java:S106="9Replace this use of System.out or System.err by a logger.(ÿþ«Ä
