@@ -12,7 +12,6 @@ public class Day10 {
 
         int register = 1;
         int cycle = 0;
-        int sumSignalStrengths = 0;
 
         var data = Files.readAllLines(PATH).stream()
                 .map(s -> s.split(" "))
@@ -26,17 +25,20 @@ public class Day10 {
 
         for (var instruction : data) {
             for (int i = 0; i < instruction.cycle(); i++) {
-                cycle++;
-                switch (cycle) {
-                    case 20, 60, 100, 140, 180, 220:
-                        System.out.println("cycle:"+ cycle + " registre :"  +register);
-                        sumSignalStrengths += cycle * register;
+                if (cycle % 40 == 0) {
+                    System.out.println();
                 }
+                var pos = cycle % 40;
+
+                if (register == pos || register - 1 == pos || register + 1 == pos) {
+                    System.out.print("#");
+                } else {
+                    System.out.print(".");
+                }
+                cycle++;
             }
             register += instruction.value();
         }
-
-        System.out.println(sumSignalStrengths);
     }
 
 }
