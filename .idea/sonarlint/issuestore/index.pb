@@ -3,16 +3,10 @@
 data/day2.txt,c/b/cb62a82369027ad0cd9e727ed9d4a9f206c5c3cf
 =
 data/day3.txt,9/c/9c350795f780412e3a4846755ea4e131b42d9594
-@
-adventofcode.iml,3/2/326b887bdcec760949bc5ffcd24838d812b25a40
 F
 src/tk/tahri/Day4.java,5/0/509c8d33d16a6c1cae0a9d8ebc6e9ca24da69900
-F
-src/tk/tahri/Day2.java,c/b/cb137081d89f3a680e25324beb299d896d4fc940
 =
 data/day6.txt,a/1/a1c66b8a4719977056a3f38eaefb2779634cc907
-F
-src/tk/tahri/Day7.java,e/2/e2f89670b52181bd2c0b18d07a9a9c450b20f55b
 =
 data/day4.txt,9/e/9e01cb01cbb53b5ab0646d992c7c5954724be6c9
 =

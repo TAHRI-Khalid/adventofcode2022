@@ -1,15 +1,0 @@
-
-D
-java:S1066I"/Merge this if statement with the enclosing one.(™…‘#
-t
-java:S1104"YMake spaceToDelete a static final constant or non-public and provide accessors if needed.(çÅÄ²üÿÿÿÿ
-x
-java:S1104"]Make smallestDirectory a static final constant or non-public and provide accessors if needed.(¬îÅðþÿÿÿÿ
-N
-java:S1444"3Make this "public static spaceToDelete" field final(çÅÄ²üÿÿÿÿ
-R
-java:S1444"7Make this "public static smallestDirectory" field final(¬îÅðþÿÿÿÿ
-h
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(œû¿Ø
-]	java:S1258"<This block of commented-out lines of code should be removed.(…™ì«úÿÿÿÿ8ïåõäÎ0
-U	java:S106<"9Replace this use of System.out or System.err by a logger.(“›°™8äöçäÎ0
