@@ -40,7 +40,6 @@ public class Day10 {
             register += instruction.value();
         }
     }
-
 }
 
 record instruction(String instruction, int value, int cycle) {
