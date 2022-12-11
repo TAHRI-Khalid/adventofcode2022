@@ -16,15 +16,18 @@ public class Day11 {
         var monkeys = Arrays.stream(Files.readString(PATH).split("\n\n"))
                 .map(Monkey::new).toList();
 
-        for (int round = 0; round < 20; round++) {
+        for (int round = 0; round < 10_000; round++) {
             for (int i = 0; i < monkeys.size(); i++) {
                 var monkey = monkeys.get(i);
                 monkey.countInspectedItems();
 
                 for (int j = 0; j < monkey.items.size(); j++) {
                     var item = monkey.items.get(j);
+                    //item %= 96577;
+                    item %= 9699690;
+
                     item = monkey.applyWorryLevel(item);
-                    item = Math.floorDiv(item, 3);
+                    //item = Math.floorDiv(item, 3);
 
                     if (item % monkey.divisibleBy == 0) {
                         monkeys.get(monkey.testIsTrueThrowToMonkey).items.add(item);
@@ -32,14 +35,11 @@ public class Day11 {
                         monkeys.get(monkey.testIsFalseThrowToMonkey).items.add(item);
                     }
                 }
-
                 monkey.items.clear();
             }
-            System.out.println("-------------------Round "+ round);
-            monkeys.forEach(monkey -> System.out.println(monkey.items));
 
         }
-        monkeys.forEach(monkey -> System.out.println(monkey.inspectedItems));
+        monkeys.forEach(monkey -> System.out.println(monkey.items));
 
         var level = monkeys.stream()
                 .map(value -> value.inspectedItems)
@@ -47,7 +47,6 @@ public class Day11 {
                 .limit(2)
                 .toList();
 
-        System.out.println(level);
         System.out.println(level.get(0) * level.get(1));
     }
 }
@@ -59,7 +58,7 @@ class Monkey {
     public final int divisibleBy;
     public final int testIsTrueThrowToMonkey;
     public final int testIsFalseThrowToMonkey;
-    public int inspectedItems = 0;
+    public long inspectedItems = 0;
 
     public Monkey(String note) {
         var obs = note.split("\n");
