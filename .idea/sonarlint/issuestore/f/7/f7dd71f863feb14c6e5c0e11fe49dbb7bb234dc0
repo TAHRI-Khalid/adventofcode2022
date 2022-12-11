@@ -1,0 +1,5 @@
+
+h	java:S101-"NRename this record name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Æ¥™®þÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ªÓ¼áþÿÿÿÿ
+N	java:S106""9Replace this use of System.out or System.err by a logger.(»€’À
+Z	java:S106$"9Replace this use of System.out or System.err by a logger.(å‡ëÇøÿÿÿÿ8¾×ŠÝÏ0
